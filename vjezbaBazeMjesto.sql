@@ -78,3 +78,30 @@ select * from mjesto where naziv like '%enja%';
 # odaberite sva mjesta koja ne završavaju s nizom znakova ar
 select * from mjesto where naziv not like '%ag';
 
+#broj redaka u tablici
+select count(*) from mjesto;
+
+#kojoj zupaniji pripada antunovac
+select * from mjesto where naziv='Antunovac';
+select * from mjesto where postanskibroj=31216;
+
+#koliko ima mjesta u osjecko baranjskoj zupaniji
+select * from mjesto where naziv='Osijek';
+select * from mjesto where zupanija=14;
+select count(*) from mjesto where zupanija=14;
+
+#odaberi sva mjesta koja su u Osijeku i vukovarsko-srijemskoj zupaniji; logički operator !
+select * from mjesto where naziv='Osijek'; #zupanija 14
+select * from mjesto where naziv='Vukovar'; # zupanija 16
+select * from mjesto where zupanija in (14,16);
+
+#odaberi sva mjesta koja nisu u Osijeku i vukovarsko-srijemskoj zupaniji; logički operator !
+select * from mjesto where naziv='Osijek'; #zupanija 14
+select * from mjesto where naziv='Vukovar'; # zupanija 16
+select * from mjesto where zupanija!=14 and zupanija!=16;
+
+#update naredba
+update mjesto set naziv='OsijekNovo' where naziv like '%var';
+select * from mjesto where naziv='OsijekNovo';
+
+
